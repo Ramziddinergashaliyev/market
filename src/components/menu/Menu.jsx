@@ -1,7 +1,8 @@
 import React from "react";
 import { TfiMenu } from "react-icons/tfi";
-import { FaRegUserCircle, FaBell } from "react-icons/fa";
+import { FaBell } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
+import { FaRegCircleUser } from "react-icons/fa6";
 import "./menu.scss";
 
 function Menu({ setClose }) {
@@ -25,7 +26,7 @@ function Menu({ setClose }) {
           <option value="Rus">Rus</option>
         </select>
         <div className="products__top__right__acc">
-          <FaRegUserCircle />
+          <FaRegCircleUser />
           <p className="products__top__title">John doe</p>
         </div>
       </div>
