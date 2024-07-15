@@ -31,7 +31,7 @@ function Sidebar() {
         <li className="sidebar__list">
           <NavLink to={"seller"} className={"sidebar__left__text"}>
             <GiSilverBullet />
-            seller
+            Seller
           </NavLink>
         </li>
         <li className="sidebar__list">

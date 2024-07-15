@@ -8,9 +8,13 @@ const Admin = () => {
   const [close, setClose] = useState(false);
   return (
     <div className={`admin ${close ? "admin__close" : ""}`}>
-      <Sidebar />
-      <div>
-        <Menu setClose={setClose} />
+      <div className="admin__top">
+        <Sidebar />
+      </div>
+      <div className="admin__bg">
+        <div className="admin__bg-top">
+          <Menu setClose={setClose} />
+        </div>
         <Outlet />
       </div>
     </div>
