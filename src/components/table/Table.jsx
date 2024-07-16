@@ -1,17 +1,18 @@
 import React from "react";
-import { useGetCustomersQuery } from "../../context/slices/customerApi";
+// import { useGetCustomersQuery } from "../../context/slices/customerApi";
 import "./table.scss";
+import { CUSTOM } from "../../static";
 
 const Table = () => {
-  const { data, isLoading } = useGetCustomersQuery();
-  console.log(data);
+  // const { data, isLoading } = useGetCustomersQuery();
+  console.log(CUSTOM);
 
-  const customerTbody = data?.innerData?.map((el) => (
+  const customerTbody = CUSTOM?.map((el, index) => (
     <tr key={el?._id}>
-      <td>{el?._id}</td>
+      <td>00{index + 1}</td>
       <td>{el?.fname}</td>
       <td>{el?.address}</td>
-      <td>{el?.phones[0] ? el?.phones[0] : el?.phone_primary}</td>
+      <td>{el?.phone_primary ? el?.phone_primary : "+998123531282"}</td>
       <td>{el?.budget}</td>
       <td className="table__btns">
         <button className="table__btns-price">Tolov</button>
