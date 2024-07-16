@@ -7,13 +7,13 @@ export const productApi = api.injectEndpoints({
         url: "/get/payments",
         params,
       }),
-      providesTags: ["Paymet", "Customer"],
+      providesTags: ["Payment", "Customer"],
     }),
     getPaymetById: build.query({
       query: (id) => ({
         url: `/get/payments/${id}`,
       }),
-      providesTags: ["Paymet", "Customer"],
+      providesTags: ["Payment", "Customer"],
     }),
     createPaymet: build.mutation({
       query: (body) => ({
@@ -21,14 +21,14 @@ export const productApi = api.injectEndpoints({
         method: "POST",
         body,
       }),
-      invalidatesTags: ["Paymet", "Customer"],
+      invalidatesTags: ["Payment", "Customer"],
     }),
     deletePaymet: build.mutation({
       query: (id) => ({
         url: `/delete/payment/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Paymet", "Customer"],
+      invalidatesTags: ["Payment", "Customer"],
     }),
     updatePaymet: build.mutation({
       query: ({ id, body }) => ({
@@ -36,7 +36,7 @@ export const productApi = api.injectEndpoints({
         method: "PUT", // or "PATCH"
         body,
       }),
-      invalidatesTags: ["Paymet", "Customer"],
+      invalidatesTags: ["Payment", "Customer"],
     }),
   }),
 });

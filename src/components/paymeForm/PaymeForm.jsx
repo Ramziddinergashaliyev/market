@@ -4,11 +4,13 @@ import { useCreatePaymetMutation } from "../../context/slices/paymetApi";
 import "./paymeForm.scss";
 
 const PaymeForm = ({ id, close }) => {
+  console.log(id);
   let initialState = {
     customerId: id,
     amount: "",
     comment: "",
   };
+
   const [payme, setPayme] = useState(initialState);
   const [paymeCreate, { data }] = useCreatePaymetMutation(id);
 
@@ -20,7 +22,7 @@ const PaymeForm = ({ id, close }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     paymeCreate(payme);
-    setPayme(initialState);
+    // setPayme(initialState);
     close(false);
   };
 

@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Module from "../Module/Module";
 import PaymeForm from "../paymeForm/PaymeForm";
 import { ImPushpin } from "react-icons/im";
+import { GrPin } from "react-icons/gr";
 
 const Table = () => {
   const { data, isLoading } = useGetCustomersQuery();
@@ -27,8 +28,8 @@ const Table = () => {
   const customerTbody = data?.innerData?.map((el, index) => (
     <tr key={el?._id}>
       <td>
-        <button onClick={() => handlePinClick(el)}>
-          <ImPushpin />
+        <button className="table__pin" onClick={() => handlePinClick(el)}>
+          {el?.pin === true ? <ImPushpin /> : <GrPin />}
         </button>
         00{index + 1}
       </td>
@@ -39,7 +40,7 @@ const Table = () => {
         <div
           className={`table__budget ${
             el?.budget > 0
-              ? ""
+              ? "table__budget__blue"
               : el?.budget === 0
               ? "table__budget__green"
               : "table__budget__red"
