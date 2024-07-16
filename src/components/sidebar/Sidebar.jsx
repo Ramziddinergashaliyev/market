@@ -41,6 +41,12 @@ function Sidebar() {
               Store
             </NavLink>
           </li>
+          <li className="sidebar__list">
+            <NavLink to={"create"} className={"sidebar__left__text"}>
+              <MdOutlineRestore />
+              Create
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className="sidebar__btns">

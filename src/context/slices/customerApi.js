@@ -11,7 +11,7 @@ export const productApi = api.injectEndpoints({
     }),
     getCustomerById: build.query({
       query: (id) => ({
-        url: `/get/customers/${id}`,
+        url: `/get/customer/${id}`,
       }),
       providesTags: ["Customer"],
     }),
@@ -33,7 +33,7 @@ export const productApi = api.injectEndpoints({
     updateCustomer: build.mutation({
       query: ({ id, body }) => ({
         url: `/update/customer/${id}`,
-        method: "PUT", // or "PATCH"
+        method: "PATCH", // or "PATCH"
         body,
       }),
       invalidatesTags: ["Customer"],
@@ -43,6 +43,7 @@ export const productApi = api.injectEndpoints({
 
 export const {
   useGetCustomersQuery,
+  useGetCustomerByIdQuery,
   useCreateCustomerMutation,
   useDeleteCustomerMutation,
   useUpdateCustomerMutation,

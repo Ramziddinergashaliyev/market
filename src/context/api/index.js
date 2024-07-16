@@ -4,9 +4,10 @@ import { createApi, fetchBaseQuery, retry } from "@reduxjs/toolkit/query/react";
 const baseQuery = async (args, api, extraOptions) => {
   const { dispatch } = api;
   const rawBaseQuery = fetchBaseQuery({
-    baseUrl: "http://trade.namtech.uz",
+    baseUrl: "https://trade.namtech.uz",
     prepareHeaders: (headers) => {
-      const token = localStorage.getItem("x-auth-token");
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk1ZWVjMDU2NjU3NzU2YzQ3OTcwN2IiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MjExMDI0OTl9.OgdLy2l3jNCH-B3SqZj0aVHcg6hHjE4qV-owWksQ-Tw"; //localStorage.getItem("x-auth-token");
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
       }
@@ -30,6 +31,6 @@ const baseQueryWithRetry = retry(baseQuery, { maxRetries: 0 });
 export const api = createApi({
   reducerPath: "myApi",
   baseQuery: baseQueryWithRetry,
-  tagTypes: ["User", "Product", "Category"],
+  tagTypes: ["User", "Product", "Category", "Paymet"],
   endpoints: () => ({}),
 });

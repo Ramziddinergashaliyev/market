@@ -1,0 +1,61 @@
+.single {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+
+  &__right,
+  &__left {
+    p {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    span {
+      font-weight: 600;
+      padding-right: 6px;
+    }
+  }
+
+  &__edit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    button {
+      padding: 10px !important;
+      background-color: #4880ff;
+      color: white;
+    }
+    input {
+      padding: 10px;
+      outline: none;
+      border: none;
+      background-color: #aaa2;
+      border-radius: 6px;
+    }
+  }
+
+  &__right__btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0px;
+    button {
+      padding: 4px 10px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    &-view {
+      background-color: blue;
+      color: white;
+    }
+
+    &-paymet {
+      background-color: crimson;
+      color: white;
+    }
+  }
+}

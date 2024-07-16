@@ -1,22 +1,71 @@
-import React from "react";
-// import { useGetCustomersQuery } from "../../context/slices/customerApi";
+import React, { useState } from "react";
+import {
+  useGetCustomerByIdQuery,
+  useGetCustomersQuery,
+  useUpdateCustomerMutation,
+} from "../../context/slices/customerApi";
 import "./table.scss";
 import { CUSTOM } from "../../static";
+import { Link, useNavigate } from "react-router-dom";
+import Module from "../Module/Module";
+import PaymeForm from "../paymeForm/PaymeForm";
+import { ImPushpin } from "react-icons/im";
 
 const Table = () => {
-  // const { data, isLoading } = useGetCustomersQuery();
-  console.log(CUSTOM);
+  const { data, isLoading } = useGetCustomersQuery();
+  const [tableClose, setTableClose] = useState(false);
+  const [pinCustom, {}] = useUpdateCustomerMutation();
 
-  const customerTbody = CUSTOM?.map((el, index) => (
+  const handlePinClick = (el) => {
+    const pinData = {
+      ...el,
+      pin: !el.pin,
+    };
+    pinCustom({ id: el._id, body: pinData });
+  };
+
+  const customerTbody = data?.innerData?.map((el, index) => (
     <tr key={el?._id}>
-      <td>00{index + 1}</td>
+      <td>
+        <button onClick={() => handlePinClick(el)}>
+          <ImPushpin />
+        </button>
+        00{index + 1}
+      </td>
       <td>{el?.fname}</td>
       <td>{el?.address}</td>
       <td>{el?.phone_primary ? el?.phone_primary : "+998123531282"}</td>
-      <td>{el?.budget}</td>
+      <td>
+        <div
+          className={`table__budget ${
+            el?.budget > 0
+              ? ""
+              : el?.budget === 0
+              ? "table__budget__green"
+              : "table__budget__red"
+          }`}
+        >
+          {el?.budget}
+        </div>
+      </td>
+
       <td className="table__btns">
-        <button className="table__btns-price">Tolov</button>
-        <button className="table__btns-view">batafsil</button>
+        {tableClose ? (
+          <Module width={400} close={setTableClose}>
+            <PaymeForm close={setTableClose} id={el?._id} />
+          </Module>
+        ) : (
+          <></>
+        )}
+        <button
+          onClick={() => setTableClose(true)}
+          className="table__btns-price"
+        >
+          Tolov
+        </button>
+        <Link to={`/admin/customer/${el?._id}`}>
+          <button className="table__btns-view">batafsil</button>
+        </Link>
       </td>
     </tr>
   ));
