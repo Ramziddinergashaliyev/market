@@ -39,17 +39,14 @@
     color: white;
     text-align: center;
     padding: 4px 10px;
-    background-color: #b6eee6;
     color: #00b69b;
     overflow: hidden;
 
     &__green {
-      background-color: #bbabdf;
       color: #6226ef;
     }
 
     &__red {
-      background-color: #f0b2ac;
       color: #ef3826;
     }
   }
@@ -69,6 +66,7 @@
   &__btns {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     button {
       padding: 4px 10px;
@@ -84,5 +82,12 @@
       background-color: #4880ff;
       color: white;
     }
+  }
+
+  &__pagenation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 30px auto;
   }
 }

@@ -1,11 +1,10 @@
-import { api } from "../api";
+import { api } from ".";
 
 export const productApi = api.injectEndpoints({
   endpoints: (build) => ({
     getCustomers: build.query({
-      query: (params) => ({
-        url: "/get/customers",
-        params,
+      query: ({ page }) => ({
+        url: `/get/customers?skip=${page}`,
       }),
       providesTags: ["Customer"],
     }),

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useCreateCustomerMutation } from "../../context/slices/customerApi";
+import { useCreateCustomerMutation } from "../../context/api/customerApi";
 import "./create.scss";
 
 let initialState = {
@@ -27,66 +27,66 @@ const Create = () => {
 
   return (
     <div className="form container">
-      <h2>Add New Contact</h2>
+      <h2>Mijoz yaratish</h2>
       <form className="form__page" onSubmit={handleSubmit} action="">
         <div className="form__page__customer">
           <label htmlFor="">
-            First name
+            Ism
             <input
               required
               value={value.fname}
               name={"fname"}
               onChange={handleChange}
-              placeholder="fname"
+              placeholder="Ism"
               type="text"
             />
           </label>
           <label htmlFor="">
-            Last name
+            Familiya
             <input
               required
               value={value.lname}
               name={"lname"}
               onChange={handleChange}
-              placeholder="lname"
+              placeholder="Familiya"
               type="text"
             />
           </label>
           <label htmlFor="">
-            phone number
+            Telefon raqam
             <input
               required
               value={value.phone_primary}
               name={"phone_primary"}
               onChange={handleChange}
-              placeholder="number"
+              placeholder="Telefon raqam"
               type="text"
             />
           </label>
           <label htmlFor="">
-            Address
+            Manzil
             <input
               required
               value={value.address}
               name={"address"}
               onChange={handleChange}
-              placeholder="address"
+              placeholder="Manzil"
               type="text"
             />
           </label>
           <label htmlFor="">
-            Budget
+            Pul
             <input
               required
               value={value.budget}
               name={"budget"}
               onChange={handleChange}
-              placeholder="budget"
+              placeholder="Summa kiriting"
               type="number"
             />
           </label>
         </div>
-        <button>Create</button>
+        <button>Yaratish</button>
       </form>
     </div>
   );

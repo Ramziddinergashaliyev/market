@@ -35,6 +35,23 @@
       color: white;
       font-size: 16px;
     }
+
+    &__full {
+      display: flex;
+      align-items: center;
+
+      justify-content: space-between;
+      gap: 70px;
+
+      button {
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        padding: 0;
+      }
+    }
   }
 
   &__item {

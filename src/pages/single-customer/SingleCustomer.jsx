@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useGetCustomerByIdQuery,
   useUpdateCustomerMutation,
-} from "../../context/slices/customerApi";
+} from "../../context/api/customerApi";
 import { useParams } from "react-router-dom";
 import { AiOutlinePlus } from "react-icons/ai";
 
@@ -12,7 +12,7 @@ import PaymeForm from "../../components/paymeForm/PaymeForm";
 import {
   useGetPaymetByIdQuery,
   useGetPaymetsQuery,
-} from "../../context/slices/paymetApi";
+} from "../../context/api/paymetApi";
 
 const SingleCustomer = () => {
   const [updete, setUpdete] = useState(null);
@@ -20,7 +20,8 @@ const SingleCustomer = () => {
   const [storeHide, setStoreHide] = useState(false);
   const { id } = useParams();
   const { data } = useGetCustomerByIdQuery(id);
-  const [SingleUpdete, { data: single }] = useUpdateCustomerMutation();
+  const [SingleUpdete, { data: single, isSuccess, isLoading }] =
+    useUpdateCustomerMutation();
   const { data: store } = useGetPaymetByIdQuery(id);
 
   const handleUpdete = (e) => {
@@ -33,7 +34,6 @@ const SingleCustomer = () => {
     };
 
     SingleUpdete({ body: updeteSingle, id: updete._id });
-    setUpdete(null);
   };
 
   console.log(store);
@@ -56,6 +56,12 @@ const SingleCustomer = () => {
       </div>
     </div>
   ));
+
+  useEffect(() => {
+    if (isSuccess) {
+      setUpdete((prev) => !prev);
+    }
+  }, [isSuccess]);
 
   return (
     <>
@@ -86,6 +92,7 @@ const SingleCustomer = () => {
               <span>budget: </span>
               {data?.innerData?.budget}
             </p>
+
             <div className="single__right__btns">
               {updete ? (
                 <Module bg={"#aaa9"} width={500} close={setUpdete}>
@@ -94,51 +101,63 @@ const SingleCustomer = () => {
                     className="single__edit"
                     action=""
                   >
-                    <input
-                      value={updete?.fname}
-                      onChange={(e) =>
-                        setUpdete((prev) => ({
-                          ...prev,
-                          fname: e.target.value,
-                        }))
-                      }
-                      placeholder="fname"
-                      type="text"
-                    />
-                    <input
-                      value={updete?.lname}
-                      onChange={(e) =>
-                        setUpdete((prev) => ({
-                          ...prev,
-                          lname: e.target.value,
-                        }))
-                      }
-                      placeholder="lname"
-                      type="text"
-                    />
-                    <input
-                      onChange={(e) =>
-                        setUpdete((prev) => ({
-                          ...prev,
-                          phone_primary: e.target.value,
-                        }))
-                      }
-                      value={updete?.phone_primary}
-                      placeholder="phone_primary"
-                      type="text"
-                    />
-                    <input
-                      value={updete?.address}
-                      onChange={(e) =>
-                        setUpdete((prev) => ({
-                          ...prev,
-                          address: e.target.value,
-                        }))
-                      }
-                      placeholder="address"
-                      type="text"
-                    />
-                    <button>Save</button>
+                    <label htmlFor="">
+                      Ism
+                      <input
+                        value={updete?.fname}
+                        onChange={(e) =>
+                          setUpdete((prev) => ({
+                            ...prev,
+                            fname: e.target.value,
+                          }))
+                        }
+                        placeholder="fname"
+                        type="text"
+                      />
+                    </label>
+                    <label htmlFor="">
+                      Familiya
+                      <input
+                        value={updete?.lname}
+                        onChange={(e) =>
+                          setUpdete((prev) => ({
+                            ...prev,
+                            lname: e.target.value,
+                          }))
+                        }
+                        placeholder="lname"
+                        type="text"
+                      />
+                    </label>
+                    <label htmlFor="">
+                      Telefon raqam
+                      <input
+                        onChange={(e) =>
+                          setUpdete((prev) => ({
+                            ...prev,
+                            phone_primary: e.target.value,
+                          }))
+                        }
+                        value={updete?.phone_primary}
+                        placeholder="phone_primary"
+                        type="text"
+                      />
+                    </label>
+                    <label htmlFor="">
+                      Manzil
+                      <input
+                        value={updete?.address}
+                        onChange={(e) =>
+                          setUpdete((prev) => ({
+                            ...prev,
+                            address: e.target.value,
+                          }))
+                        }
+                        placeholder="address"
+                        type="text"
+                      />
+                    </label>
+                    <button>{isLoading ? "Saving..." : "Save"}</button>
                   </form>
                 </Module>
               ) : (
@@ -148,11 +167,11 @@ const SingleCustomer = () => {
                 onClick={() => setUpdete(data?.innerData)}
                 className="single__right__btns-view"
               >
-                Edit
+                O'zgartirish
               </button>
               {payme ? (
-                <Module close={setPayme} width={500} bg={"#aaa9"}>
-                  <PaymeForm id={id} />
+                <Module close={setPayme} width={400} bg={"#aaa9"}>
+                  <PaymeForm id={id} close={setPayme} />
                 </Module>
               ) : (
                 <></>
@@ -161,15 +180,24 @@ const SingleCustomer = () => {
                 onClick={() => setPayme(true)}
                 className="single__right__btns-paymet"
               >
-                Paymet
+                To'lov
+              </button>
+              <button
+                onClick={() => setStoreHide(true)}
+                className="single__btn"
+              >
+                <AiOutlinePlus /> Tolov Tarixi
               </button>
             </div>
           </div>
         </div>
-        <button onClick={() => setStoreHide(true)} className="single__btn">
-          <AiOutlinePlus /> Tolov Tarixi
-        </button>
-        {storeHide ? <div>{StoreData}</div> : <></>}
+        {storeHide ? (
+          <Module width={600} bg={"#aaa6"} close={setStoreHide}>
+            <div>{StoreData}</div>
+          </Module>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );

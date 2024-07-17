@@ -7,18 +7,25 @@ import Seller from "./pages/admin/seller/Seller";
 import Create from "./pages/create/Create";
 import SingleCustomer from "./pages/single-customer/SingleCustomer";
 import Paymet from "./pages/paymet/Paymet";
+import Auth from "./pages/auth/Auth";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 
 const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Navigate to={"/admin/customer"} />} />
-        <Route path="/admin/" element={<Admin />}>
-          <Route path="customer" element={<Customer />} />
-          <Route path="seller" element={<Seller />} />
-          <Route path="store" element={<Store />} />
-          <Route path="create" element={<Create />} />
-          <Route path="customer/:id" element={<SingleCustomer />} />
+        {/* <Route path="/" element={<Navigate to={"/login"} />} /> */}
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Auth />}>
+          <Route path="admin/" element={<Admin />}>
+            <Route path="customer" element={<Customer />} />
+            <Route path="seller" element={<Seller />} />
+            <Route path="store" element={<Store />} />
+            <Route path="create" element={<Create />} />
+            <Route path="customer/:id" element={<SingleCustomer />} />
+          </Route>
         </Route>
       </Routes>
     </div>

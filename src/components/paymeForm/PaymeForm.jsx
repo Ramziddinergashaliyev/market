@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useCreatePaymetMutation } from "../../context/slices/paymetApi";
+import React, { useEffect, useState } from "react";
+import { useCreatePaymetMutation } from "../../context/api/paymetApi";
 
 import "./paymeForm.scss";
 
@@ -12,7 +12,8 @@ const PaymeForm = ({ id, close }) => {
   };
 
   const [payme, setPayme] = useState(initialState);
-  const [paymeCreate, { data }] = useCreatePaymetMutation(id);
+  const [paymeCreate, { data, isLoading, isSuccess }] =
+    useCreatePaymetMutation(id);
 
   const handleChange = (e) => {
     let { value, name } = e.target;
@@ -23,8 +24,13 @@ const PaymeForm = ({ id, close }) => {
     e.preventDefault();
     paymeCreate(payme);
     // setPayme(initialState);
-    close(false);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      close(false);
+    }
+  }, [isSuccess]);
 
   return (
     <div className="payme">
@@ -44,7 +50,7 @@ const PaymeForm = ({ id, close }) => {
           onChange={handleChange}
           type="text"
         />
-        <button>Save</button>
+        <button>{isLoading ? "Loading..." : "Save"}</button>
       </form>
     </div>
   );

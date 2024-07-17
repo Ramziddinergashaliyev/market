@@ -3,7 +3,7 @@ import {
   useGetCustomerByIdQuery,
   useGetCustomersQuery,
   useUpdateCustomerMutation,
-} from "../../context/slices/customerApi";
+} from "../../context/api/customerApi";
 import "./table.scss";
 import { CUSTOM } from "../../static";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,11 +11,22 @@ import Module from "../Module/Module";
 import PaymeForm from "../paymeForm/PaymeForm";
 import { ImPushpin } from "react-icons/im";
 import { GrPin } from "react-icons/gr";
+import Typography from "@mui/material/Typography";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 const Table = () => {
-  const { data, isLoading } = useGetCustomersQuery();
   const [tableClose, setTableClose] = useState(false);
   const [pinCustom, {}] = useUpdateCustomerMutation();
+  const [page, setPage] = React.useState(1);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+  const { data, isLoading, isSuccess } = useGetCustomersQuery({
+    page: page - 1,
+  });
+
+  let pageLength = Math.ceil(data?.totalCount / 10);
 
   const handlePinClick = (el) => {
     const pinData = {
@@ -65,13 +76,13 @@ const Table = () => {
     <div className="table">
       <table className="table__row">
         <thead>
-          <tr>
+          <tr style={{ textAlign: "center" }}>
             <th>id</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Budget</th>
-            <th>info</th>
+            <th>Ism</th>
+            <th>Manzil</th>
+            <th>Telefon nomer</th>
+            <th>Pul</th>
+            <th style={{ paddingLeft: "100px" }}>/</th>
           </tr>
         </thead>
         <tbody>{customerTbody}</tbody>
@@ -83,6 +94,11 @@ const Table = () => {
           <></>
         )}
       </table>
+      <div className="table__pagenation">
+        <Stack spacing={2}>
+          <Pagination count={pageLength} page={page} onChange={handleChange} />
+        </Stack>
+      </div>
     </div>
   );
 };

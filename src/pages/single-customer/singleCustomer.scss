@@ -36,6 +36,12 @@
       background-color: #aaa2;
       border-radius: 6px;
     }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
   }
 
   &__right__btns {

@@ -7,26 +7,46 @@ import { GiSilverBullet } from "react-icons/gi";
 import { IoMdSettings } from "react-icons/io";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import { CiLogout } from "react-icons/ci";
+import { LuUserPlus } from "react-icons/lu";
+import { useGetAdminsQuery } from "../../context/api/adminApi";
+import { CiMenuKebab } from "react-icons/ci";
 
 function Sidebar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login");
+    navigate("/");
   };
+
+  const { data: prifile } = useGetAdminsQuery();
+  console.log(prifile?.innerData?.user);
+
+  let prifileData = prifile?.innerData?.user;
+
   return (
     <section className="sidebar">
       <div>
         <div className="sidebar__top">
-          <button>R</button>
-          <h2>Ramziddin</h2>
+          <button>{prifileData?.fname.slice(0, 1)}</button>
+          <div className="sidebar__top__full">
+            <h2>{prifileData?.fname}</h2>
+            <button>
+              <CiMenuKebab />
+            </button>
+          </div>
         </div>
         <ul className="sidebar__item">
           <li className="sidebar__list">
             <NavLink to={"customer"} className={"sidebar__left__text"}>
               <AiOutlineCustomerService />
               Mijoz
+            </NavLink>
+          </li>
+          <li className="sidebar__list">
+            <NavLink to={"create"} className={"sidebar__left__text"}>
+              <LuUserPlus />
+              Mijoz Yaratish
             </NavLink>
           </li>
           <li className="sidebar__list">
@@ -39,12 +59,6 @@ function Sidebar() {
             <NavLink to={"store"} className={"sidebar__left__text"}>
               <MdOutlineRestore />
               Ombor
-            </NavLink>
-          </li>
-          <li className="sidebar__list">
-            <NavLink to={"create"} className={"sidebar__left__text"}>
-              <MdOutlineRestore />
-              Yaratish
             </NavLink>
           </li>
         </ul>

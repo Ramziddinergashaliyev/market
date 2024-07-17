@@ -6,8 +6,7 @@ const baseQuery = async (args, api, extraOptions) => {
   const rawBaseQuery = fetchBaseQuery({
     baseUrl: "https://trade.namtech.uz",
     prepareHeaders: (headers) => {
-      const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk1ZWVjMDU2NjU3NzU2YzQ3OTcwN2IiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MjExMDI0OTl9.OgdLy2l3jNCH-B3SqZj0aVHcg6hHjE4qV-owWksQ-Tw"; //localStorage.getItem("x-auth-token");
+      const token = localStorage.getItem("x-auth-token");
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
       }
