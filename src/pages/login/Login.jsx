@@ -36,11 +36,12 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn(value);
+    console.log("ok");
   };
 
   return (
     <div className="login">
-      <form className="login__form" onClick={handleSubmit} action="">
+      <form className="login__form" onSubmit={handleSubmit} action="">
         <div>
           <h3 className="login__form__title">Royxatdan o'tish</h3>
           <p className="login__form__text">
@@ -69,12 +70,14 @@ const Login = () => {
             placeholder="password"
             type="text"
           />
-          <div className="login__form__check">
-            <input type="checkbox" />
-            <span>Parolni eslab qolish</span>
-          </div>
         </label>
+        <div className="login__form__check">
+          <input type="checkbox" />
+          <span>Parolni eslab qolish</span>
+        </div>
+
         <button>Tizimga kirish</button>
+
         <p>
           Hisobingiz yo'qmi?
           <Link className="login__form__link" to={"/register"}>
