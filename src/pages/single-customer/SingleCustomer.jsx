@@ -22,7 +22,6 @@ const SingleCustomer = () => {
   const { data } = useGetCustomerByIdQuery(id);
   const [SingleUpdete, { data: single }] = useUpdateCustomerMutation();
   const { data: store } = useGetPaymetByIdQuery(id);
-  // console.log(data);
 
   const handleUpdete = (e) => {
     e.preventDefault();
@@ -50,7 +49,10 @@ const SingleCustomer = () => {
           {el?.adminId?.fname}
           {el?.adminId?.lname}
         </p>
-        <p>{el?.updatedAt}</p>
+        <p>
+          {el?.updatedAt.split("T")[0]}{" "}
+          {el?.updatedAt.split("T")[1].split(".")[0]}
+        </p>
       </div>
     </div>
   ));
@@ -149,8 +151,8 @@ const SingleCustomer = () => {
                 Edit
               </button>
               {payme ? (
-                <Module width={500} bg={"#aaa9"}>
-                  <PaymeForm id={id} close={setPayme} />
+                <Module close={setPayme} width={500} bg={"#aaa9"}>
+                  <PaymeForm id={id} />
                 </Module>
               ) : (
                 <></>

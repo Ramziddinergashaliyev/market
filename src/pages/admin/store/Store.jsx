@@ -17,8 +17,8 @@ const Store = () => {
   ));
 
   return (
-    <div className="container">
-      <table className="table">
+    <div className="table">
+      <table className="table__row">
         <thead>
           <tr>
             <th>id</th>

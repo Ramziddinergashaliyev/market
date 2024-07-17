@@ -51,17 +51,7 @@ const Table = () => {
       </td>
 
       <td className="table__btns">
-        {tableClose ? (
-          <Module width={400} close={setTableClose}>
-            <PaymeForm close={setTableClose} id={el?._id} />
-          </Module>
-        ) : (
-          <></>
-        )}
-        <button
-          onClick={() => setTableClose(true)}
-          className="table__btns-price"
-        >
+        <button onClick={() => setTableClose(el)} className="table__btns-price">
           Tolov
         </button>
         <Link to={`/admin/customer/${el?._id}`}>
@@ -70,9 +60,10 @@ const Table = () => {
       </td>
     </tr>
   ));
+
   return (
-    <div className="container">
-      <table className="table">
+    <div className="table">
+      <table className="table__row">
         <thead>
           <tr>
             <th>id</th>
@@ -84,6 +75,13 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>{customerTbody}</tbody>
+        {tableClose ? (
+          <Module bg={"#aaa8"} width={400} close={setTableClose}>
+            <PaymeForm close={setTableClose} id={tableClose?._id} />
+          </Module>
+        ) : (
+          <></>
+        )}
       </table>
     </div>
   );
