@@ -6,13 +6,16 @@
     letter-spacing: -0.11428570002317429px;
     text-align: left;
     color: #202224;
-    padding: 10px 0px 30px;
+    padding: 10px 0px 20px;
   }
 
-  &__customer {
+  &__page {
     background-color: white;
     border-radius: 10px;
     padding: 40px 80px;
+  }
+
+  &__page__customer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
@@ -30,14 +33,15 @@
       background-color: #aaa3;
       border-radius: 6px;
     }
-
-    button {
-      background-color: #4880ff;
-      color: white;
-      width: 200px;
-      height: 45px;
-      border: none;
-      border-radius: 8px;
-    }
+  }
+  button {
+    background-color: #4880ff;
+    color: white;
+    width: 200px;
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    margin: 20px auto;
   }
 }

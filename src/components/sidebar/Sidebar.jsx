@@ -19,32 +19,32 @@ function Sidebar() {
     <section className="sidebar">
       <div>
         <div className="sidebar__top">
-          <MdDashboard />
-          <h1>Dashboard</h1>
+          <button>R</button>
+          <h2>Ramziddin</h2>
         </div>
         <ul className="sidebar__item">
           <li className="sidebar__list">
             <NavLink to={"customer"} className={"sidebar__left__text"}>
               <AiOutlineCustomerService />
-              Customer
+              Mijoz
             </NavLink>
           </li>
           <li className="sidebar__list">
             <NavLink to={"seller"} className={"sidebar__left__text"}>
               <GiSilverBullet />
-              Seller
+              Sotuvchi
             </NavLink>
           </li>
           <li className="sidebar__list">
             <NavLink to={"store"} className={"sidebar__left__text"}>
               <MdOutlineRestore />
-              Store
+              Ombor
             </NavLink>
           </li>
           <li className="sidebar__list">
             <NavLink to={"create"} className={"sidebar__left__text"}>
               <MdOutlineRestore />
-              Create
+              Yaratish
             </NavLink>
           </li>
         </ul>
@@ -52,11 +52,11 @@ function Sidebar() {
       <div className="sidebar__btns">
         <div className="sidebar__btns__title">
           <IoMdSettings />
-          <p>Settings</p>
+          <p>Sozlamalar</p>
         </div>
         <div className="sidebar__btns__title" onClick={handleLogout}>
           <CiLogout />
-          <p>Login out</p>
+          <p>Chiqish</p>
         </div>
       </div>
     </section>

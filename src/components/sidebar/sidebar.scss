@@ -22,9 +22,18 @@
     h1 {
       color: black;
     }
-    svg {
-      font-size: 25px;
-      min-width: 25px;
+    // svg {
+    //   font-size: 25px;
+    //   min-width: 25px;
+    // }
+
+    button {
+      padding: 6px 12px;
+      border-radius: 50%;
+      border: none;
+      background-color: #4880ff;
+      color: white;
+      font-size: 16px;
     }
   }
 

@@ -26,8 +26,9 @@ function Menu({ setClose }) {
           <option value="Rus">Rus</option>
         </select>
         <div className="products__top__right__acc">
-          <FaRegCircleUser />
-          <p className="products__top__title">John doe</p>
+          {/* <FaRegCircleUser />
+          <p className="products__top__title">John doe</p> */}
+          {/* <button>ER</button> */}
         </div>
       </div>
     </div>
