@@ -5,11 +5,12 @@ import "./sidebar.scss";
 import { MdDashboard, MdOutlineRestore } from "react-icons/md";
 import { GiSilverBullet } from "react-icons/gi";
 import { IoMdSettings } from "react-icons/io";
-import { AiOutlineCustomerService } from "react-icons/ai";
+import { FaRegUser } from "react-icons/fa6";
 import { CiLogout } from "react-icons/ci";
 import { LuUserPlus } from "react-icons/lu";
 import { useGetAdminsQuery } from "../../context/api/adminApi";
 import { CiMenuKebab } from "react-icons/ci";
+import { LiaWarehouseSolid } from "react-icons/lia";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ function Sidebar() {
         <ul className="sidebar__item">
           <li className="sidebar__list">
             <NavLink to={"customer"} className={"sidebar__left__text"}>
-              <AiOutlineCustomerService />
+              <FaRegUser />
               Mijoz
             </NavLink>
           </li>
@@ -57,7 +58,7 @@ function Sidebar() {
           </li>
           <li className="sidebar__list">
             <NavLink to={"store"} className={"sidebar__left__text"}>
-              <MdOutlineRestore />
+              <LiaWarehouseSolid />
               Ombor
             </NavLink>
           </li>

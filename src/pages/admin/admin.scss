@@ -8,6 +8,10 @@
 
   &__bg-top {
     background-color: white;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    left: 0;
   }
 
   &__close {

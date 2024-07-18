@@ -36,8 +36,6 @@ const SingleCustomer = () => {
     SingleUpdete({ body: updeteSingle, id: updete._id });
   };
 
-  console.log(store);
-
   const StoreData = store?.innerData?.map((el) => (
     <div className="single__store">
       <div>
@@ -65,7 +63,7 @@ const SingleCustomer = () => {
 
   return (
     <>
-      <div className="single container">
+      <div className="single">
         <div className="single__card">
           <div className="single__left">
             <p>

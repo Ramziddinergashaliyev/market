@@ -7,6 +7,7 @@
   left: 0;
   opacity: 0;
   animation: overlay 0.3s forwards;
+  z-index: 110;
 }
 @keyframes overlay {
   to {
@@ -24,7 +25,7 @@
   transform: translate(-50%, -80%) scale(0.9);
   border-radius: 10px;
   padding: 30px;
-  opacity: 0;
+  opacity: 1;
   animation: model 0.3s forwards;
   overflow: auto;
   z-index: 200;
