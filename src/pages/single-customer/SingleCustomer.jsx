@@ -13,6 +13,9 @@ import {
   useGetPaymetByIdQuery,
   useGetPaymetsQuery,
 } from "../../context/api/paymetApi";
+import Typography from "@mui/material/Typography";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 const SingleCustomer = () => {
   const [updete, setUpdete] = useState(null);
@@ -23,6 +26,10 @@ const SingleCustomer = () => {
   const [SingleUpdete, { data: single, isSuccess, isLoading }] =
     useUpdateCustomerMutation();
   const { data: store } = useGetPaymetByIdQuery(id);
+  const [page, setPage] = React.useState(1);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
 
   const handleUpdete = (e) => {
     e.preventDefault();
@@ -37,7 +44,7 @@ const SingleCustomer = () => {
   };
 
   const StoreData = store?.innerData?.map((el) => (
-    <div className="single__store">
+    <div className="single__store__info">
       <div>
         <p>budget: {el?.amount}</p>
         <span>comment: {el?.comment}</span>
@@ -191,7 +198,14 @@ const SingleCustomer = () => {
         </div>
         {storeHide ? (
           <Module width={600} bg={"#aaa6"} close={setStoreHide}>
-            <div>{StoreData}</div>
+            <div className="single__store">
+              {StoreData}
+              <div className="single__store__pagenation">
+                <Stack spacing={2}>
+                  <Pagination count={10} page={page} onChange={handleChange} />
+                </Stack>
+              </div>
+            </div>
           </Module>
         ) : (
           <></>

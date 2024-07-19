@@ -1,19 +1,21 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./sidebar.scss";
-import { MdDashboard, MdOutlineRestore } from "react-icons/md";
 import { GiSilverBullet } from "react-icons/gi";
 import { IoMdSettings } from "react-icons/io";
 import { FaRegUser } from "react-icons/fa6";
-import { CiLogout } from "react-icons/ci";
 import { LuUserPlus } from "react-icons/lu";
 import { useGetAdminsQuery } from "../../context/api/adminApi";
 import { CiMenuKebab } from "react-icons/ci";
 import { LiaWarehouseSolid } from "react-icons/lia";
+import { AiOutlineProfile } from "react-icons/ai";
+import { FaRegEdit } from "react-icons/fa";
+import { CiLogout } from "react-icons/ci";
 
 function Sidebar() {
   const navigate = useNavigate();
+  const [profileHide, setProfileHide] = useState(null);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -25,18 +27,50 @@ function Sidebar() {
 
   let prifileData = prifile?.innerData?.user;
 
+  console.log(profileHide);
+
   return (
     <section className="sidebar">
       <div>
         <div className="sidebar__top">
-          <button>{prifileData?.fname.slice(0, 1)}</button>
+          <button onClick={() => setProfileHide((prev) => !prev)}>
+            {prifileData?.fname.slice(0, 1)}
+          </button>
           <div className="sidebar__top__full">
             <h2>{prifileData?.fname}</h2>
-            <button>
+            <button onClick={() => setProfileHide((prev) => !prev)}>
               <CiMenuKebab />
             </button>
           </div>
         </div>
+        <div
+          className={`sidebar__profile ${
+            profileHide ? "sidebar__profile__hide" : ""
+          }`}
+        >
+          <div className="sidebar__profile__info">
+            <Link
+              onClick={() => setProfileHide(false)}
+              className="sidebar__profile__title"
+              to={"profile"}
+            >
+              <AiOutlineProfile />
+              Profile
+            </Link>
+            <p className="sidebar__profile__title">
+              <FaRegEdit />
+              O'zgartirish
+            </p>
+            <p
+              className="sidebar__profile__title"
+              onClick={() => setProfileHide(false)}
+            >
+              <CiLogout />
+              Chiqish
+            </p>
+          </div>
+        </div>
+
         <ul className="sidebar__item">
           <li className="sidebar__list">
             <NavLink to={"customer"} className={"sidebar__left__text"}>

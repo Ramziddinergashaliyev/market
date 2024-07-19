@@ -10,6 +10,7 @@ import Paymet from "./pages/paymet/Paymet";
 import Auth from "./pages/auth/Auth";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import Profile from "./pages/profile/Profile";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="store" element={<Store />} />
             <Route path="create" element={<Create />} />
             <Route path="customer/:id" element={<SingleCustomer />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Route>
       </Routes>

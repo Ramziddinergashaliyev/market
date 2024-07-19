@@ -33,7 +33,7 @@ export const productApi = api.injectEndpoints({
     updateAdmin: build.mutation({
       query: ({ id, body }) => ({
         url: `/update/profile`,
-        method: "PUT", // or "PATCH"
+        method: "PATCH", // or "PATCH"
         body,
       }),
       invalidatesTags: ["Admin", "Customer"],

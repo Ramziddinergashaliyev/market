@@ -69,11 +69,19 @@
 
   &__store {
     background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #aaa4;
+    &__info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #aaa4;
+    }
+
+    &__pagenation {
+      display: flex;
+      margin: 10px 0px 0px;
+      justify-content: flex-end;
+    }
   }
 
   &__btn {
