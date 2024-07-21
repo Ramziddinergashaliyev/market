@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  gap: 10px;
   button {
     border: none;
     background-color: transparent;
@@ -39,6 +40,10 @@
 
     svg {
       font-size: 20px;
+    }
+
+    @media (max-width: 620px) {
+      width: 100%;
     }
   }
 
@@ -85,5 +90,11 @@
 
   &__title {
     font-size: 20px;
+  }
+
+  @media (max-width: 450px) {
+    select {
+      display: none;
+    }
   }
 }

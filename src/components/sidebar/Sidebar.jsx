@@ -33,11 +33,13 @@ function Sidebar() {
     <section className="sidebar">
       <div>
         <div className="sidebar__top">
-          <button onClick={() => setProfileHide((prev) => !prev)}>
-            {prifileData?.fname.slice(0, 1)}
-          </button>
-          <div className="sidebar__top__full">
+          <div className="sidebar__top__info">
+            <button onClick={() => setProfileHide((prev) => !prev)}>
+              {prifileData?.fname.slice(0, 1)}
+            </button>
             <h2>{prifileData?.fname}</h2>
+          </div>
+          <div className="sidebar__top__full">
             <button onClick={() => setProfileHide((prev) => !prev)}>
               <CiMenuKebab />
             </button>
@@ -61,10 +63,7 @@ function Sidebar() {
               <FaRegEdit />
               O'zgartirish
             </p>
-            <p
-              className="sidebar__profile__title"
-              onClick={() => setProfileHide(false)}
-            >
+            <p className="sidebar__profile__title" onClick={handleLogout}>
               <CiLogout />
               Chiqish
             </p>

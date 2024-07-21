@@ -41,4 +41,12 @@
       gap: 5px;
     }
   }
+
+  @media (max-width: 440px) {
+    &__info {
+      background-color: white;
+      padding: 10px;
+      width: 100%;
+    }
+  }
 }

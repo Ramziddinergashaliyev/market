@@ -24,4 +24,28 @@
     flex-direction: column;
     gap: 20px;
   }
+
+  @media (max-width: 930px) {
+    grid-template-columns: 1fr;
+    &__top {
+      background-color: white;
+      width: 300px;
+      position: fixed;
+      height: 100vh;
+      z-index: 9999;
+      top: 0;
+      right: -100%;
+      transition: 0.7s;
+      box-shadow: 1px 1px 10px #aaa2;
+    }
+    &__menu {
+      right: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__top {
+      width: 80%;
+    }
+  }
 }

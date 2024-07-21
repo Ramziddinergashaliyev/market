@@ -60,16 +60,17 @@
   &__top {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 15px;
-    padding: 20px 14px 10px;
+    padding: 20px 5px 10px 14px;
     h1 {
       color: black;
     }
-    // svg {
-    //   font-size: 25px;
-    //   min-width: 25px;
-    // }
+    &__info {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
 
     button {
       padding: 6px 12px;
@@ -84,7 +85,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 50px;
+      // gap: 50px;
 
       button {
         background-color: transparent;

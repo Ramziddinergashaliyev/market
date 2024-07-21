@@ -23,4 +23,11 @@
       color: white;
     }
   }
+
+  @media (max-width: 500px) {
+    h2 {
+      font-size: 16px;
+      text-align: center;
+    }
+  }
 }

@@ -46,15 +46,17 @@ const SingleCustomer = () => {
   const StoreData = store?.innerData?.map((el) => (
     <div className="single__store__info">
       <div>
-        <p>budget: {el?.amount}</p>
-        <span>comment: {el?.comment}</span>
+        <p className="single__store__info-price">{el?.amount}</p>
+        <span className="single__store__info-comment">
+          comment: {el?.comment}
+        </span>
       </div>
       <div>
-        <p>
+        <p className="single__store__info-price">
           {el?.adminId?.fname}
           {el?.adminId?.lname}
         </p>
-        <p>
+        <p className="single__store__info-clock">
           {el?.updatedAt.split("T")[0]}{" "}
           {el?.updatedAt.split("T")[1].split(".")[0]}
         </p>
@@ -200,11 +202,11 @@ const SingleCustomer = () => {
           <Module width={600} bg={"#aaa6"} close={setStoreHide}>
             <div className="single__store">
               {StoreData}
-              <div className="single__store__pagenation">
+              {/* <div className="single__store__pagenation">
                 <Stack spacing={2}>
                   <Pagination count={10} page={page} onChange={handleChange} />
                 </Stack>
-              </div>
+              </div> */}
             </div>
           </Module>
         ) : (

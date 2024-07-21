@@ -48,8 +48,17 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .model {
     width: 80% !important;
+    padding: 20px 15px;
+    &__btn {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      border: none;
+      background-color: transparent;
+      color: red;
+    }
   }
 }

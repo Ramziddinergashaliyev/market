@@ -18,6 +18,23 @@
     min-width: 70px;
   }
 
+  &__select {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 0px;
+    button,
+    select {
+      width: 180px;
+      padding: 15px;
+      outline: none;
+      border: 1px solid #aaa4;
+      border-radius: 6px;
+      background-color: white;
+    }
+  }
+
   td {
     position: relative;
   }
@@ -89,5 +106,66 @@
     align-items: center;
     justify-content: flex-end;
     margin: 30px auto;
+  }
+
+  @media (max-width: 1200px) {
+    &__row {
+      width: 100%;
+    }
+    td {
+      display: grid;
+    }
+  }
+  @media (max-width: 1150px) {
+    th {
+      display: none;
+    }
+    td {
+      display: block;
+      gap: 10px;
+      padding: 14px 8px;
+    }
+
+    td::before {
+      content: attr(data-cell) ":  ";
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    &__budget {
+      display: flex !important;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__btns {
+      display: flex !important;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+    &__select {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 20px 0px;
+      button,
+      select {
+        width: calc(50% - 5px);
+        padding: 10px;
+        outline: none;
+        border: 1px solid #aaa4;
+        border-radius: 6px;
+        background-color: white;
+      }
+    }
+
+    &__pagenation {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
   }
 }
