@@ -24,4 +24,22 @@
       border-radius: 6px;
     }
   }
+
+  @media (max-width: 500px) {
+    &__form {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 5px;
+      align-items: flex-end;
+
+      label {
+        font-size: 14px;
+        gap: 4px;
+      }
+      button,
+      input {
+        padding: 8px;
+      }
+    }
+  }
 }
