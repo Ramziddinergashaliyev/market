@@ -27,8 +27,6 @@ function Sidebar() {
 
   let prifileData = prifile?.innerData?.user;
 
-  console.log(profileHide);
-
   return (
     <section className="sidebar">
       <div>

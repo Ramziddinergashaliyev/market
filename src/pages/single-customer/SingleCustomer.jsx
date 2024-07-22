@@ -46,7 +46,7 @@ const SingleCustomer = () => {
   const StoreData = store?.innerData?.map((el) => (
     <div className="single__store__info">
       <div>
-        <p className="single__store__info-price">{el?.amount}</p>
+        <p className="single__store__info-price">{el?.amount} so'm</p>
         <span className="single__store__info-comment">
           comment: {el?.comment}
         </span>
@@ -75,30 +75,17 @@ const SingleCustomer = () => {
       <div className="single">
         <div className="single__card">
           <div className="single__left">
-            <p>
-              <span>fname: </span> {data?.innerData?.fname}
-            </p>
-            <p>
-              <span>lname:</span>
-              {data?.innerData?.lname}
-            </p>
-            <p>
-              <span>address:</span> {data?.innerData?.address}
-            </p>
-            <p>
-              <span>number:</span> {data?.innerData?.phone_primary}
-            </p>
+            <p>{data?.innerData?.fname}</p>
+            <p>{data?.innerData?.lname}</p>
+            <p>{data?.innerData?.address}</p>
+            <p>{data?.innerData?.phone_primary}</p>
           </div>
           <div className="single__right">
             <p>
-              <span>Shaxs: </span>
               {data?.innerData?.adminId?.fname}{" "}
               {data?.innerData?.adminId?.lname}
             </p>
-            <p>
-              <span>budget: </span>
-              {data?.innerData?.budget}
-            </p>
+            <p>{data?.innerData?.budget}</p>
 
             <div className="single__right__btns">
               {updete ? (
