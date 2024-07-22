@@ -2,14 +2,14 @@
   display: grid;
   grid-template-columns: 280px 1fr;
   transition: 0.5s;
+
   &__icon {
     width: 30px;
   }
 
-  &__bg-top {
+  &__sidebar {
     background-color: white;
     position: sticky;
-    z-index: 10;
     top: 0;
     left: 0;
   }
@@ -18,35 +18,24 @@
     grid-template-columns: 60px 1fr;
   }
 
+  &__bg-top {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: white;
+  }
+
   &__bg {
     background-color: #f5f6fa;
     height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    z-index: 10;
   }
 
-  @media (max-width: 930px) {
-    grid-template-columns: 1fr;
-    &__top {
-      background-color: white;
-      width: 300px;
-      position: fixed;
-      height: 100vh;
-      z-index: 9999;
-      top: 0;
-      right: -100%;
-      transition: 0.7s;
-      box-shadow: 1px 1px 10px #aaa2;
-    }
-    &__menu {
-      right: 0;
-    }
-  }
-
-  @media (max-width: 600px) {
-    &__top {
-      width: 80%;
-    }
+  @media (max-width: 920px) {
+    grid-template-columns: 60px 1fr;
   }
 }

@@ -116,10 +116,10 @@
       display: grid;
     }
   }
+  th {
+    display: none;
+  }
   @media (max-width: 1150px) {
-    th {
-      display: none;
-    }
     td {
       display: block;
       gap: 10px;

@@ -11,6 +11,7 @@ import Auth from "./pages/auth/Auth";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Profile from "./pages/profile/Profile";
+import CreateProduct from "./pages/admin/createProduct/CreateProduct";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="create" element={<Create />} />
             <Route path="customer/:id" element={<SingleCustomer />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="createProduct" element={<CreateProduct />} />
           </Route>
         </Route>
       </Routes>

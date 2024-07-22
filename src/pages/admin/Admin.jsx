@@ -8,7 +8,7 @@ const Admin = () => {
   const [close, setClose] = useState(false);
   return (
     <div className={`admin ${close ? "admin__close" : ""}`}>
-      <div className={`admin__top ${close ? "admin__menu" : ""}`}>
+      <div className="admin__sidebar">
         <Sidebar />
       </div>
       <div className="admin__bg">

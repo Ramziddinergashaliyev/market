@@ -75,8 +75,9 @@ const SingleCustomer = () => {
       <div className="single">
         <div className="single__card">
           <div className="single__left">
-            <p>{data?.innerData?.fname}</p>
-            <p>{data?.innerData?.lname}</p>
+            <p>
+              {data?.innerData?.fname} {data?.innerData?.lname}
+            </p>
             <p>{data?.innerData?.address}</p>
             <p>{data?.innerData?.phone_primary}</p>
           </div>
