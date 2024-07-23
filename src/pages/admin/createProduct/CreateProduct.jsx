@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useGetSellerSearchQuery } from "../../../context/api/sellerApi";
 import { useCreateProductMutation } from "../../../context/api/productApi";
 import Module from "../../../components/Module/Module.jsx";
-
 import "./createProduct.scss";
 
 const initialState = {

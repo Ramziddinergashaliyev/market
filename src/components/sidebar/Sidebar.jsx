@@ -12,15 +12,19 @@ import { LiaWarehouseSolid } from "react-icons/lia";
 import { AiOutlineProfile } from "react-icons/ai";
 import { FaRegEdit } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
+import { useDispatch } from "react-redux";
+import { logout } from "../../context/slices/authSlice";
 
 function Sidebar() {
   const navigate = useNavigate();
   const [profileHide, setProfileHide] = useState(null);
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
+  // const handleLogout = () => {
+  //   localStorage.clear();
+  //   navigate("/");
+  // };
+
+  const dispatch = useDispatch();
 
   const { data: prifile } = useGetAdminsQuery();
   console.log(prifile?.innerData?.user);
@@ -61,7 +65,10 @@ function Sidebar() {
               <FaRegEdit />
               O'zgartirish
             </p>
-            <p className="sidebar__profile__title" onClick={handleLogout}>
+            <p
+              className="sidebar__profile__title"
+              onClick={() => dispatch(logout())}
+            >
               <CiLogout />
               Chiqish
             </p>
@@ -106,7 +113,10 @@ function Sidebar() {
           <IoMdSettings />
           <p>Sozlamalar</p>
         </div>
-        <div className="sidebar__btns__title" onClick={handleLogout}>
+        <div
+          className="sidebar__btns__title"
+          onClick={() => dispatch(logout())}
+        >
           <CiLogout />
           <p>Chiqish</p>
         </div>
