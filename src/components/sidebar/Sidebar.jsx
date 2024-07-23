@@ -93,6 +93,12 @@ function Sidebar() {
               Ombor
             </NavLink>
           </li>
+          <li className="sidebar__list">
+            <NavLink to={"createProduct"} className={"sidebar__left__text"}>
+              <GiSilverBullet />
+              Mahsulot yaratish
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className="sidebar__btns">
