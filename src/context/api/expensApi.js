@@ -7,13 +7,13 @@ export const ExpensAPi = api.injectEndpoints({
         url: "/get/expenses",
         params,
       }),
-      providesTags: ["Expens"],
+      providesTags: ["Expens", "Seller"],
     }),
     getExpensById: build.query({
       query: (id) => ({
         url: `/expens/${id}`,
       }),
-      providesTags: ["Expens"],
+      providesTags: ["Expens", "Seller"],
     }),
     createExpens: build.mutation({
       query: (body) => ({
@@ -21,14 +21,14 @@ export const ExpensAPi = api.injectEndpoints({
         method: "POST",
         body,
       }),
-      invalidatesTags: ["Expens"],
+      invalidatesTags: ["Expens", "Seller"],
     }),
     deleteExpens: build.mutation({
       query: (id) => ({
         url: `/delete/expense/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Expens"],
+      invalidatesTags: ["Expens", "Seller"],
     }),
     updateExpens: build.mutation({
       query: ({ id, body }) => ({
@@ -36,7 +36,7 @@ export const ExpensAPi = api.injectEndpoints({
         method: "PUT", // or "PATCH"
         body,
       }),
-      invalidatesTags: ["Expens"],
+      invalidatesTags: ["Expens", "Seller"],
     }),
   }),
 });
